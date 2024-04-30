@@ -1,7 +1,7 @@
-# EXNO-6-DS-DATA VISUALIZATION USING SEABORN LIBRARY
+# EXNO-5-DS-DATA VISUALIZATION USING MATPLOT LIBRARY
 
 # Aim:
-  To Perform Data Visualization using seaborn python library for the given datas.
+  To Perform Data Visualization using matplot python library for the given datas.
 
 # EXPLANATION:
 Data visualization is the graphical representation of information and data. By using visual elements like charts, graphs, and maps, data visualization tools provide an accessible way to see and understand trends, outliers, and patterns in data.
@@ -24,174 +24,130 @@ Register No : 212223230067
 ```
 
 ```
-import seaborn as sns
-import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-x = [1, 2, 3, 4, 5]
-y = [3, 6, 2, 7, 1]
-sns.lineplot(x=x,y=y)
+import seaborn as sns
+import matplotlib.pyplot as plt
 ```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/18a0f3c8-10a6-42b4-9eb3-45770f741ac3)
+
+## Line Plot:
 
 ```
-df = sns.load_dataset("tips")
-df
+marks=[13,45,63,78]
+student=['ABC','QOR','EFB','TOB']
+plt.plot(marks,student)
+plt.xlabel('Marks')
+plt.ylabel('Student name')
+plt.show()
+
+student=['A','B','C','D']
+attendence=[90,85,73,88]
+plt.plot(attendence,student)
+plt.xlabel('Attendence')
+plt.ylabel('Student name')
+plt.show()
 ```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/0124fef5-dcba-4c31-9831-db85384d9c5a)
+![image](https://github.com/Sriram8452/EXNO-5-DS/assets/118708032/915713f5-50b1-4013-8037-3a9cc599f291)
+
+## Scatter Plot:
+
 ```
-sns.lineplot(x="total_bill",y="tip", data=df, hue="sex", linestyle='solid', legend="auto")
+x=[10,20,30,40,50]
+y=[100,200,300,400,500]
+plt.scatter(x,y,label='stars',color='green',marker='*',s=30)
+plt.show()
+
+x=np.arange(0,15)
+y=np.arange(0,15)
+x
+y
+plt.scatter(x,y,c='r')
+plt.xlabel('X axis')
+plt.ylabel('y axis')
+plt.title('Scatter plot')
+plt.show()
 ```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/1bbe2d28-735c-4114-aff7-9030d334c830)
+![image](https://github.com/Sriram8452/EXNO-5-DS/assets/118708032/7fab8701-3aee-4b5a-b729-cb82a6c2dd16)
+
+## Pie Chart:
+
 ```
-x=[1, 2, 3, 4, 5]
-y1=[3, 5, 2, 6, 1]
-y2=[1, 6, 4, 3, 8]
-y3=[5, 2, 7, 1, 4]
-sns.lineplot(x=x, y=y1)
-sns.lineplot(x=x, y=y2)
-sns.lineplot(x=x, y=y3)
-plt.title("Multi-Line Plot")
-plt.xlabel('X Label')
-plt.ylabel("Y Label")
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/4d6c2a15-2352-4ba4-bd6b-97a54cd93ce7)
-```
-tips=sns.load_dataset('tips')
-avg_total_bill = tips.groupby('day')['total_bill'].mean()
-avg_tip = tips.groupby('day')['tip'].mean()
-plt.figure(figsize=(8, 6))
-p1 = plt.bar(avg_total_bill.index, avg_total_bill, label='Total Bill')
-p2 = plt.bar(avg_tip.index, avg_tip, bottom=avg_total_bill, label='Tip')
-plt.xlabel('Day of the Week')
-plt.ylabel('Amount')
-plt.title('Average Total Bill and Tip by Day')
+act=['eat','sleep','work','play']
+slices=[3,7,8,6]
+color=['r','y','g','b']
+plt.pie(slices,labels=act,colors=color,startangle=90,shadow=True,explode=(0.1,0.1,0.1,0.1),radius=1.2,autopct='%1.1f%%')
 plt.legend()
+plt.show()
+
+feedback=['Good','excellent','Perfect','Ok']
+slices=[4,10,3,8]
+color=['y','r','b','g']
+plt.pie(slices,labels=feedback,colors=color,startangle=90,shadow=True,explode=(0.1,0.1,0.1,0.1),radius=1.2,autopct='%1.1f%%')
+plt.legend()
+plt.show()
 ```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/86b30955-7bb2-44af-92d1-39e8be4b56ea)
+![image](https://github.com/Sriram8452/EXNO-5-DS/assets/118708032/a16d81be-4162-41f0-ba84-7d43883c3248)
+
+## Area Chart:
+
 ```
-avg_total_bill = tips.groupby('time')['total_bill'].mean() 
-avg_tip=tips.groupby('time') ['tip'].mean()
-p1= plt.bar(avg_total_bill.index, avg_total_bill, label='Total Bill', width=0.4)
-p2 = plt.bar(avg_tip.index,avg_tip,bottom=avg_total_bill,label='Tip', width=0.4)
+x = [1, 2, 3, 4, 5]
+y1 = [10, 12, 14, 16, 18]
+y2 = [5, 7, 9, 11, 13]
+y3 = [2, 4, 6, 8, 10]
+plt.fill_between(x, y1, color='blue')
+plt.fill_between(x, y2, color='green')
+plt.plot(x, y1, color='red')
+plt.plot(x, y2, color='black')
+plt.legend(['y1','y2'])
+plt.show()
 ```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/27a32e9f-e734-4f47-adf1-bafddba998c3)
+![image](https://github.com/Sriram8452/EXNO-5-DS/assets/118708032/9d90b6c9-70ac-4f52-bec1-975fafa4afc7)
+
+## Bar Chart:
+
 ```
-years=range(2000, 2012)
-apples=[0.895, 0.91, 0.919, 0.926, 0.929, 0.931, 0.934, 0.936, 0.937, 0.9375, 0.9372, 0.939] 
-oranges = [0.962, 0.941, 0.930, 0.923, 0.918, 0.908, 0.907, 0.904, 0.901, 0.898, 0.9, 0.896, ]
+height = [10, 24, 36, 40, 5]
+names = ['one', 'two', 'three', 'four', 'five']
+c1=['red', 'green'] 
+c2=['b', 'g']
+plt.bar (names, height, width=0.8, color=c1)
+plt.xlabel('x - axis')
+plt.ylabel('y - axis')
+plt.title('My bar chart!')
+plt.show()
 ```
+![image](https://github.com/Sriram8452/EXNO-5-DS/assets/118708032/6685a45c-7ed2-44c4-8730-3a2e55acf7e3)
+
+## Histogram:
+
 ```
-plt.bar(years, apples)
-plt.bar(years, oranges, bottom=apples)
+x = [2,1,6,4,2,4,8,9,4,2,4,10,6,4,5,7,7,3,2,7,5,3,5,9,2,1]
+plt.hist(x, bins = 10, color='blue', alpha=0.5)
+plt.show()
 ```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/31f5b45b-5a80-4259-a259-a4cecee25ee5)
+![image](https://github.com/Sriram8452/EXNO-5-DS/assets/118708032/c7d07305-db41-438c-8585-81346fead120)
+
+## Box Plot:
+
 ```
-import seaborn as sns
-dt= sns.load_dataset('tips')
-sns.barplot(x='day', y='total_bill', hue='sex', data=dt, palette='Set1')
-plt.xlabel('Day of the Week')
-plt.ylabel("Total Bill")
-plt.title('Total Bill by Day and Gender')
+np.random.seed(0)
+data=np.random.normal(loc=0, scale=1, size=100)
+data
 ```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/359daca3-3920-4c78-b593-7d660c09cc36)
+![image](https://github.com/Sriram8452/EXNO-5-DS/assets/118708032/1073572a-2c3a-487c-a1b8-efdbc595ac91)
+
 ```
-tit=pd.read_csv("titanic_dataset.csv")
-tit
+fig, ax= plt.subplots()
+ax.boxplot(data)
+ax.set_xlabel('Data')
+ax.set_ylabel('Values')
+ax.set_title('Box Plot')
 ```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/b749f1ee-b0a6-4a67-a340-f9cae8a8290a)
-```
-plt.figure(figsize=(8,5))
-sns.barplot(x='Embarked', y='Fare', data=tit, palette='rainbow') 
-plt.title("Fare of Passenger by Embarked Town")
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/03dbd087-2a3e-4bfa-8847-bc2e9bbe7cc3)
-```
-plt.figure(figsize=(8,5))
-sns.barplot(x='Embarked', y='Fare', data=tit, palette='rainbow', hue='Pclass') 
-plt.title("Fare of Passenger by Embarked Town, Divided by Class")
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/090114ac-6d91-4117-80ca-2bb2fe72af26)
-```
-tips=sns.load_dataset('tips')
-sns.scatterplot(x='total_bill', y='tip', hue='sex', data=tips)
-plt.xlabel('Total Bill')
-plt.ylabel("Tip Amount")
-plt.title('Scatter Plot of Total Bill vs. Tip Amount')
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/b7984ccc-60c8-4cf2-ba31-0dafe6119b91)
-```
-num_var = np.random.randn(1000)
-num_var=pd.Series(num_var, name = "Numerical variable")
-num_var
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/5e149370-320f-4c4b-b6e9-93839011d166)
-```
-sns.histplot(data = num_var, kde = True)
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/39b3d5fa-e8af-45f5-afb2-2875c766a5e6)
-```
-df=pd.read_csv("titanic_dataset.csv")
-sns.histplot(data=df,x="Pclass", hue="Survived", kde=True)
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/e8b91ede-1cc0-4087-beb6-c3c56d8137ee)
-```
-tips=sns.load_dataset('tips')
-sns.boxplot(x=tips['day'], y=tips ['total_bill'], hue=tips['sex'])
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/c7d0ff3a-e9a0-4369-a9c9-9229d84776c3)
-```
-sns.boxplot(x="day", y="total_bill", hue="smoker", data=tips, linewidth=2, width=0.6, boxprops={"facecolor": "lightblue", "edgecolor": "darkblue"},
-whiskerprops={"color": "black", "linestyle": "--", "linewidth": 1.5}, capprops={"color": "black", "linestyle": "--", "linewidth": 1.5})
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/dc5777c4-83cf-47d2-ba0c-b6bb81547441)
-```
-sns.violinplot(x="day", y="total_bill", hue="smoker", data=tips, linewidth=2, width=0.6, palette="Set3", inner="quartile")
-plt.xlabel("Day of the Week")
-plt.ylabel("Total Bill")
-plt.title("Violin Plot of Total Bill by Day and Smoker Status")
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/8dec8878-d0bb-46ca-bc17-095aba86cffd)
-```
-mart=pd.read_csv("titanic_dataset.csv")
-mart
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/32c63c42-35dc-47df-b851-c13e54c166aa)
-```
-mart=mart[['PassengerId', 'Survived', 'Age', 'Name', 'Ticket', 'Embarked']] 
-mart.head(10)
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/bcbe61b9-5739-4853-a186-302272133266)
-```
-sns.kdeplot(data=mart,x='PassengerId')
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/727482e0-5b45-47e4-8542-93ebc9cfb5b7)
-```
-sns.kdeplot(data=mart,x='Age')
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/9bb955c9-ba97-48ab-b158-35a44931ccf6)
-```
-sns.kdeplot(data=mart)
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/8cc57d95-8df2-4483-8c98-2edbcfb68b0c)
-```
-sns.kdeplot(data=mart,x='PassengerId',hue='Survived',multiple='stack')
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/f56e128b-5393-46e8-acb6-33bfd6fde4a9)
-```
-sns.kdeplot(data=mart,x='PassengerId',y='Survived')
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/4f66d13f-770e-4b17-b29d-74f42cb4395e)
-```
-data = np.random.randint(low = 1, high = 100, size = (10,10))
-hm=sns.heatmap(data=data,annot=True)
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/5eba9f52-3c11-4640-b78f-451463d24415)
-```
-hm=sns.heatmap(data=data)
-```
-![image](https://github.com/Sriram8452/EXNO-6-DS/assets/118708032/4bbbf59a-e638-4c7b-bf5c-5298f9bada3b)
+![image](https://github.com/Sriram8452/EXNO-5-DS/assets/118708032/3e04e28b-5a0e-412e-ad52-ecda68c69561)
+
+
 
 # Result:
 
-Thus, all the data visualization techniques of seaborn has been implemented.
+Thus, all the data visualization techniques of matplotlib has been implemented.
